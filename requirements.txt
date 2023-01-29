@@ -1,0 +1,12 @@
+# setting up the virtual enviroment inside our initial project file.
+
+python 3.10 
+pip install virtualenv
+python -m venv tmenv
+tmenv\Scripts\activate
+pip install django==2.2 
+# create a folder with our django project
+# inside django project folder
+django-admin startproject taskmate
+# inside taskmate project folder
+python manage.py runserver

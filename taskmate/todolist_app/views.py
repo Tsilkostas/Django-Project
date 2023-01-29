@@ -2,4 +2,8 @@ from django.shortcuts import render
 from django.http  import HttpResponse
 
 def todolist(request):
-    return HttpResponse("Welcome To Task Page")
+    context={
+        'welcome_text':'Welcome From Jinga'
+        
+    }
+    return render(request, 'todolist.html',context)

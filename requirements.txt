@@ -10,3 +10,7 @@ pip install django==2.2
 django-admin startproject taskmate
 # inside taskmate project folder
 python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+# create a new app inside taskmate
+python manage.py startapp todolist

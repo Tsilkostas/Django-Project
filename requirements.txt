@@ -14,3 +14,5 @@ python manage.py makemigrations
 python manage.py migrate
 # create a new app inside taskmate
 python manage.py startapp todolist
+# create super User inside taskmate folder
+python manage.py createsuperuser

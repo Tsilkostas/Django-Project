@@ -6,6 +6,36 @@
 
 {% block content %}
 <div class="container">
-  <h1>{{welcome_text}}</h1>
+  <br>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col">Task</th>
+          <th scope="col">Done</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+      {% for obj  in all_tasks  %}
+        {% if obj.done %}
+          <tr class="table-success"> 
+            <td>{{ obj.task }}</td>
+            <td>Completed</td>
+            <td>Edit</td>
+            <td>Delete</td>
+          </tr>
+          {% else %}
+          <tr> 
+            <td>{{ obj.task }}</td>
+            <td>Not completed</td>
+            <td>Edit</td>
+            <td>Delete</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock content %}

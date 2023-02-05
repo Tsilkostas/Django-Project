@@ -17,13 +17,11 @@
         </div>
       {% endfor %}
   {% endif %}  
-  <form method="POST">
+  <form method="POST" class="row">
       {% csrf_token %}
-      <div class="mb-3">
-        <input type="text" class="form-control" name="task" placeholder="New Task">
-        
-      </div>
-        <button type="submit" class="btn btn-primary">Add Task</button>
+        <label class="col-lg-4"></label>
+        <input type="text" class="form-control col-lg-6" name="task" placeholder="New Task">
+        <button type="submit" class="btn btn-primary col-lg-2">Add Task</button>
   </form>
   <br>
   <table class="table table-bordered">

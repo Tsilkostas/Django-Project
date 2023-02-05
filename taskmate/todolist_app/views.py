@@ -38,8 +38,11 @@ def delete_task(request, task_id):
 
 def edit_task(request, task_id):
     if request.method=="POST":
-        
-        messages.success(request,("Task Edited!"))    
+        task = TaskList.objects.get(pk=task_id)
+        form = TaskForm(request.POST or None, instance=task)
+        if form.is_valid():
+            form.save()
+        messages.success(request,("Task Updated!"))    
         return redirect('todolist')    
         
     else:    

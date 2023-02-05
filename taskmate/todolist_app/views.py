@@ -3,6 +3,7 @@ from django.http  import HttpResponse
 from todolist_app.models import TaskList
 from todolist_app.forms import TaskForm
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 def todolist(request):
     if request.method=="POST":
@@ -11,9 +12,12 @@ def todolist(request):
             form.save()
         messages.success(request,("New Task Added!"))    
         return redirect('todolist')    
-        
+    # this is the get request    
     else:    
-        all_tasks = TaskList.objects.all
+        all_tasks = TaskList.objects.all()
+        paginator = Paginator(all_tasks, 5)
+        page = request.GET.get('pg')
+        all_tasks = paginator.get_page(page)
         
         return render(request, 'todolist.html',{'all_tasks':all_tasks})
 

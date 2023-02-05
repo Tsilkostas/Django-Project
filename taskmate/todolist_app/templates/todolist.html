@@ -7,13 +7,20 @@
 {% block content %}
 <div class="container">
   <br>
+  {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-info" role="alert">
+          {{ message }}
+        </div>
+      {% endfor %}
+  {% endif %}  
   <form method="POST">
       {% csrf_token %}
-    <div class="mb-3">
-      <input type="text" class="form-control" name="task" placeholder="New Task">
-      
-    </div>
-      <button type="submit" class="btn btn-primary">Add Task</button>
+      <div class="mb-3">
+        <input type="text" class="form-control" name="task" placeholder="New Task">
+        
+      </div>
+        <button type="submit" class="btn btn-primary">Add Task</button>
   </form>
   <br>
   <table class="table table-bordered">
@@ -27,7 +34,8 @@
         </tr>
     </thead>
     <tbody>
-      {% for obj  in all_tasks  %}
+    {% if all_tasks %}
+      {% for obj  in all_tasks %}
         {% if obj.done %}
           <tr class="table-success"> 
             <td>{{ obj.task }}</td>
@@ -44,6 +52,7 @@
           </tr>
         {% endif %}
       {% endfor %}
+    {% endif %}
     </tbody>
   </table>
 </div>

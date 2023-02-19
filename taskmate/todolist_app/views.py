@@ -35,6 +35,13 @@ def about(request):
     }
     return render(request, 'about.html',context)
 
+def index(request):
+    context={
+        'index_text':'Welcome to Index page'
+        
+    }
+    return render(request, 'index.html',context)
+
 def delete_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
     task.delete()
@@ -65,4 +72,5 @@ def pending_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
     task.done = False
     task.save()
-    return redirect('todolist')    
+    return redirect('todolist')  
+  

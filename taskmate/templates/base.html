@@ -26,13 +26,18 @@
         </div>
           {% if user.is_authenticated %}
           <div class="form-inline my-2 my-lg-0">
-            <p>{{ user.username}}</p>
+            <div class="p-2 text-white bg-dark">Logged in as {{ user.username}}</div>
             <a href="{% url 'logout' %}">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+            <button class="btn btn-info my-2 my-sm-0" type="submit">Logout</button>
             </a>
           </div>
           {% else %}
-              <p>Logged Out</p>
+          <a href="{% url 'login' %}">
+            <button class="btn btn-success mr-2 my-2 my-sm-0" type="submit">Login</button>
+            </a>
+            <a href="{% url 'register' %}">
+              <button class="btn btn-primary my-2 my-sm-0" type="submit">Register</button>
+              </a>
           {% endif %}        
       </nav>
   </head>

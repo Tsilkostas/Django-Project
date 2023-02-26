@@ -8,9 +8,9 @@ def register(request):
     if request.method=="POST":
         register_form = UserCreationForm(request.POST)
         if register_form.is_valid():
-            # register_form.save()
+            register_form.save()
             messages.success(request, ("New User Account Created, Login To Get Started"))
-            return redirect('todolist')
+            return redirect('register')
     else:   
          
         register_form = UserCreationForm()

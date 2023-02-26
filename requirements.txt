@@ -1,6 +1,7 @@
 # setting up the virtual enviroment inside our initial project file.
 
 python 3.10 
+pip install django-crispy-forms
 pip install virtualenv
 python -m venv tmenv
 tmenv\Scripts\activate

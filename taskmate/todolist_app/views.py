@@ -11,7 +11,9 @@ def todolist(request):
     if request.method=="POST":
         form = TaskForm(request.POST or None)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.manage = request.user
+            instance.save()
         messages.success(request,("New Task Added!"))    
         return redirect('todolist')    
     # this is the get request    
